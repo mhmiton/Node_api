@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{> _head }}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-- Header -->
+  {{> _header }}
+  <!-- left-sidebar -->
+  {{> _left_menu }}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="full_window" style="min-height: 900px !important; background-color: #ecf0f5;">
+    <div class="content-wrapper">
+      {{{body}}}
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Footer Section -->
+  {{> _footer }}
+
+  <!-- Control/Right Sidebar -->
+  {{> _right_menu }}
+
+
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+
+{{> _js_link }}
+<!-- ./wrapper -->
+
+</body>
+</html>

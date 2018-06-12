@@ -1,0 +1,111 @@
+ <div class="container" style="padding:50px;">
+      <div class="col-md-12">
+
+        <form id="form" action="/save" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="token" id="token" value="{{token}}">
+
+            <div class="form-group">
+              <label>Name</label>
+              <input class="form-control" type="text" name="name" id="name">
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input class="form-control" type="text" name="email" id="email">
+            </div>
+
+            <div class="form-group">
+              <label>Phone</label>
+              <input class="form-control" type="text" name="mobile" id="mobile">
+            </div>
+
+            <div class="form-group">
+              <label>Address</label>
+              <input class="form-control" type="text" name="address" id="address">
+            </div>
+
+            <div class="text-center">
+              <input class="" type="hidden" name="id" id="id"> 
+              <button type="submit" id="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+
+        <div style="height: 80px;"></div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>SL</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each data}}
+            <tr>
+              <td>{{math @key "+" 1}}</td>
+              <td>{{ name }}</td>
+              <td>{{ email }}</td>
+              <td>{{ phone }}</td>
+              <td>{{ address }}</td>
+              <td align="right">
+                <i class="btn btn-info fa fa-edit" onclick="read_data('{{ id }}');"></i>
+                <i class="btn btn-danger fa fa-trash" onclick="destroy('{{ id }}');"></i>
+              </td>
+            </tr>
+            {{/each }}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $('#form').submit(function(event){
+        event.preventDefault();
+        var data = new FormData($('#form')[0]);
+        var url = $('#form').attr('action');
+        fetch(url,{
+          method:'post',
+          headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'},
+          body:JSON.stringify(data);
+        }).then(res => {
+          if (res.ok) return res.json()
+        }).then(data => {
+          alert(data.text);
+        });
+
+      });
+      function read_data(id)
+      {
+      	fetch('edit_data',{
+          method:'post',
+          headers: {'Content-Type':'application/json'},
+          body:JSON.stringify({id:id, token:'{{token}}'})
+        }).then(res => {
+          if (res.ok) return res.json()
+        }).then(data => {
+          $('#name').val(data[0].name);
+	        $('#email').val(data[0].email);
+	        $('#mobile').val(data[0].mobile);
+	        $('#address').val(data[0].address);
+	        $('#id').val(data[0].id);
+	        $('#submit').text('Update');
+        });
+      }
+
+      function destroy(id)
+      {
+        fetch('destroy',{
+          method:'delete',
+          headers: {'Content-Type':'application/json'},
+          body:JSON.stringify({id:id, token:'{{token}}'})
+        }).then(res => {
+          if (res.ok) return res.json()
+        }).then(data => {
+          alert(data.text);
+        });
+      }
+    </script>

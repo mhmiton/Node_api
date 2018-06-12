@@ -1,0 +1,37 @@
+/*DIV SPACE -- <div class="div_space_20"></div><!--DIV SPACE--> */
+.div_space_5{height:5px;} .div_space_10{height:10px;} .div_space_15{height:15px;} .div_space_20{height:20px;} .div_space_25{height:25px;}
+.div_space_30{height:30px;}	.div_space_35{height:35px;} .div_space_40{height:40px;} .div_space_45{height:45px;} .div_space_50{height:50px;}
+.div_space_55{height:55px;}	.div_space_60{height:60px;} .div_space_65{height:65px;}	.div_space_70{height:70px;} .div_space_75{height:75px;}
+.div_space_80{height:80px;} .div_space_85{height:85px;}	.div_space_90{height:90px;} .div_space_95{height:95px;}	.div_space_100{height:100px;}
+
+
+
+
+.add_chart_btn{}
+.form_heading{font-size: 16px;}
+.fill{color: #55a62c; font-size: 7px; margin: 3px 0px 0px 3px; position: absolute; display: inline-block;}
+.file{width:100%; border:1px solid #ccc; padding:4px 5px;}
+.hide_input{visibility:hidden;}
+
+.form_loader_wrap{position:absolute; background:rgba(23, 32, 42, 0.6); z-index:999; height: 100%;
+width: 100%; text-align: center; display: none;}
+.form_loader{position:relative; top:50%; transform:translateY(-50%); width:250px; height:300px;}
+
+/*Table Section*/
+.table_wrap{overflow: auto;}
+.table_head{font-weight: 800; font-size:14px;}
+.table_data{}
+.table_head tr td{vertical-align: middle !important;}
+.table_data tr td{vertical-align: middle !important;}
+
+.edit_btn{padding: 3px; font-size: 16px; cursor: pointer !important; color: #337ab7;}
+.del_btn{padding: 3px; font-size: 16px; cursor: pointer !important; color: #dd4b39;}
+.check_btn{padding: 3px; font-size: 16px; cursor: pointer !important; color: #00a65a;}
+.disabled{pointer-events:none; opacity:0.5;}
+.col{margin-right: 22px;}
+
+.print_heading{display:none;}
+.print_logo{width:60px; height:50px; display:;}
+.right_heading{display:none;}
+.r_h{font-size:10px; width: 55px; display:inline-block;}
+.r_c{font-size:9px;}
